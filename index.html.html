@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso - Sistema de Acesso Concluído</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 5px solid #28a745;
+            border-radius: 8px;
+        }
+        
+        .section h2 {
+            color: #28a745;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .icon {
+            font-size: 20px;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .values-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 15px 0;
+        }
+        
+        .values-table .row {
+            display: flex;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .values-table .row:last-child {
+            border-bottom: none;
+        }
+        
+        .values-table .label {
+            flex: 1;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .values-table .value {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .benefits-table {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin: 15px 0;
+        }
+        
+        .benefits-table .row {
+            display: flex;
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        
+        .benefits-table .row:last-child {
+            border-bottom: none;
+        }
+        
+        .benefits-table .benefit {
+            flex: 1;
+            font-size: 14px;
+        }
+        
+        .benefits-table .price {
+            color: #dc3545;
+            font-weight: bold;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .footer strong {
+            font-size: 16px;
+        }
+        
+        .highlight {
+            background: #d4edda;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #c3e6cb;
+            margin: 15px 0;
+        }
+        
+        .form-link {
+            background: #28a745;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            border: 2px solid #28a745;
+        }
+        
+        .form-link a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .form-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ffeaa7;
+            margin: 15px 0;
+        }
+        
+        .info-box {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #bee5eb;
+            margin: 15px 0;
+        }
+        
+        .intro {
+            font-size: 16px;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+        
+        .print-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 2px 10px rgba(40, 167, 69, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .contributor-section {
+            background: #d4edda;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .non-contributor-section {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .section-title {
+            color: #28a745;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .non-contributor-title {
+            color: #dc3545;
+        }
+        
+        @media print {
+            .print-btn {
+                display: none;
+            }
+            body {
+                padding: 0;
+                font-size: 12px;
+            }
+            .header {
+                background: #28a745 !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚧 NOVO SISTEMA DE ACESSO – CONCLUÍDO ✅</h1>
+    </div>
+    
+    <p class="intro">
+        <strong>Prezados moradores e proprietários,</strong><br>
+        A partir de amanhã, entra em operação o novo sistema de acesso do condomínio, com liberação via <strong>TAG, Wi-Fi (celular) e controle remoto</strong>, além de integração com as câmeras de segurança.
+    </p>
+    
+    <div class="section">
+        <h2><span class="icon">📅</span> Cronograma de Cadastro:</h2>
+        <ul>
+            <li><strong>Cadastro da TAG:</strong> será realizado amanhã com o Victor na portaria</li>
+            <li><strong>Cadastro do acesso pelo celular (Wi-Fi):</strong> enviaremos instruções de como baixar o aplicativo e, em seguida, liberaremos o acesso</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2><span class="icon">📄</span> O que você precisa fazer:</h2>
+        <div class="highlight">
+            Se ainda não preencheu o formulário de atualização, pedimos que o faça o quanto antes. É necessário que <strong>uma pessoa por lote ou residência</strong> envie os dados, inclusive <strong>quem ainda não começou a construir</strong>.
+        </div>
+        
+        <div class="form-link">
+            <strong>📝 ACESSE O FORMULÁRIO DE ATUALIZAÇÃO:</strong><br>
+            <a href="https://forms.gle/YtRhUQSupNXgK7NQA" target="_blank">👉 https://forms.gle/YtRhUQSupNXgK7NQA</a><br>
+            <small>Clique no link acima para preencher seus dados</small>
+        </div>
+    </div>
+    
+    <div class="contributor-section">
+        <div class="section-title">
+            <span class="icon">🔹</span> Para quem contribui com a cota do condomínio
+        </div>
+        <p><strong>(Moradores, proprietários de lotes ou com residência em construção)</strong></p>
+        
+        <div class="benefits-table">
+            <div class="row">
+                <div class="benefit">✅ 1 TAG de acesso ao portão principal (pedestres)</div>
+            </div>
+            <div class="row">
+                <div class="benefit">✅ Acesso pelo celular (Wi-Fi) para portão principal e portões de veículos</div>
+            </div>
+            <div class="row">
+                <div class="benefit">✅ 1 controle remoto para portões de veículos</div>
+            </div>
+            <div class="row">
+                <div class="benefit">✅ Acesso às câmeras de segurança mediante solicitação prévia</div>
+            </div>
+            <div class="row">
+                <div class="benefit">✅ Recepção de mercadorias na portaria</div>
+            </div>
+        </div>
+        
+        <p><strong>Compras avulsas (Contribuinte):</strong></p>
+        <div class="benefits-table">
+            <div class="row">
+                <div class="benefit">TAG adicional (limite de 3 por residência)</div>
+                <div class="price">R$ 20,00</div>
+            </div>
+            <div class="row">
+                <div class="benefit">Controle remoto adicional (limite de 2 por residência)</div>
+                <div class="price">R$ 70,00</div>
+            </div>
+        </div>
+        <div class="info-box">
+            <strong>Obs.:</strong> Para mais TAGs, solicitar à administração para avaliação.
+        </div>
+    </div>
+    
+    <div class="non-contributor-section">
+        <div class="section-title non-contributor-title">
+            <span class="icon">🔹</span> Para quem não contribui com a cota do condomínio
+        </div>
+        
+        <div class="benefits-table">
+            <div class="row">
+                <div class="benefit">TAG de acesso (limite de 1 por lote/residência)</div>
+                <div class="price">R$ 50,00</div>
+            </div>
+            <div class="row">
+                <div class="benefit">Controle remoto (limite de 1 por lote/residência)</div>
+                <div class="price">R$ 100,00</div>
+            </div>
+            <div class="row">
+                <div class="benefit">❌ Não terá acesso pelo celular (Wi-Fi) para portão principal e portões de veículos</div>
+            </div>
+            <div class="row">
+                <div class="benefit">❌ Não terá acesso às câmeras de segurança</div>
+            </div>
+            <div class="row">
+                <div class="benefit">❌ Não terá recepção de mercadorias na portaria</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2><span class="icon">🏗️</span> Projeto de Melhoria da Fachada:</h2>
+        <p>Foi contratado um arquiteto e um departamento jurídico para tratar da nova fachada da portaria e da área comum em frente ao condomínio. O projeto será apresentado na próxima reunião, a ser convocada em breve.</p>
+    </div>
+    
+    <div class="section">
+        <h2><span class="icon">💰</span> Cotas do condomínio:</h2>
+        <div class="values-table">
+            <div class="row">
+                <div class="label">Lote:</div>
+                <div class="value">R$ 100</div>
+            </div>
+            <div class="row">
+                <div class="label">Residência construída:</div>
+                <div class="value">R$ 150</div>
+            </div>
+            <div class="row" style="background: #f8f9fa;">
+                <div class="label" style="font-weight: bold;">Mais de um lote ou residência (unificados lado a lado):</div>
+                <div class="value"></div>
+            </div>
+            <div class="row">
+                <div class="label" style="margin-left: 20px;">2 lotes juntos:</div>
+                <div class="value">R$ 150 (R$ 100 + R$ 50)</div>
+            </div>
+            <div class="row">
+                <div class="label" style="margin-left: 20px;">2 residências juntas:</div>
+                <div class="value">R$ 225 (R$ 150 + R$ 75)</div>
+            </div>
+        </div>
+        <div class="warning">
+            <strong>Importante:</strong> Lotes ou residências separados: valor integral para cada um.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2><span class="icon">🔒</span> Segurança:</h2>
+        <p>Pedimos que mantenham sempre os portões fechados e utilizem os mecanismos liberados para entrada própria e de visitantes convidados. O objetivo é preservar a segurança interna e limitar o acesso de pessoas não autorizadas.</p>
+    </div>
+    
+    <div class="section">
+        <h2><span class="icon">🤝</span> Colaboração:</h2>
+        <p>Contamos com a colaboração de todos para seguir com as melhorias e manter um ambiente seguro e acolhedor.</p>
+    </div>
+    
+    <div class="footer">
+        <p>Atenciosamente,<br>
+        <strong>Administração – Associação Vivendas do Cachamorra</strong></p>
+    </div>
+    
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Salvar como PDF</button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Documento carregado. Sistema de acesso concluído!');
+        });
+    </script>
+</body>
+</html>
